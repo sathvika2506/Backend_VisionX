@@ -1,16 +1,8 @@
-function validateMiddleware(rules) {
-  return (req, res, next) => {
-    const errors = [];
-    rules.forEach((rule) => {
-      if (!req.body[rule]) {
-        errors.push(`${rule} is required`);
-      }
-    });
-
-    if (errors.length > 0) {
-      return res.status(400).json({ errors });
-    }
-    next();
-  };
-}
-module.exports = validateMiddleware;
+// Middleware to validate mobile number in request body
+export const validateMobile = (req, res, next) => {
+  const { mobile } = req.body;
+  if (!mobile || !/^\d{10}$/.test(mobile)) {
+    return res.status(400).json({ success: false, message: "Invalid mobile number" });
+  }
+  next();
+};

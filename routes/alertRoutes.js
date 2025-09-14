@@ -1,6 +1,9 @@
-const express = require("express");
-const { sendAlert, getAlerts } = require("../controllers/alertController");
+import express from "express";
+import { sendSMSAlert, sendIVRAlert } from "../controllers/alertController.js";
+
 const router = express.Router();
-router.post("/", sendAlert);
-router.get("/", getAlerts);
-module.exports = router;
+
+router.post("/sms", sendSMSAlert);
+router.post("/ivr", sendIVRAlert);
+
+export default router;

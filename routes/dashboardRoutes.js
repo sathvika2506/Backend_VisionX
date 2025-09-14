@@ -1,6 +1,9 @@
-const express = require("express");
-const { getStats, getUsers } = require("../controllers/dashboardController");
+import express from "express";
+import { getAdminStats, getNGOMonitoring } from "../controllers/dashboardController.js";
+
 const router = express.Router();
-router.get("/stats", getStats);
-router.get("/users", getUsers);
-module.exports = router;
+
+router.get("/admin-stats", getAdminStats);
+router.get("/ngo-monitoring", getNGOMonitoring);
+
+export default router;

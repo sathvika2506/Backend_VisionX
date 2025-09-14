@@ -1,6 +1,18 @@
-const express = require("express");
-const { login, generateOTP } = require("../controllers/authController");
+import express from "express";
+import { generateOTP, verifyOTP, login, verifyToken } from "../controllers/authController.js";
+
 const router = express.Router();
-router.post("/login", login);
+
+// Send OTP
 router.post("/otp", generateOTP);
-module.exports = router;
+
+// Verify OTP
+router.post("/verify", verifyOTP);
+
+// Login stub
+router.post("/login", login);
+
+// JWT verification stub
+router.get("/verify-token", verifyToken);
+
+export default router;
