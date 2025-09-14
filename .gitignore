@@ -1,3 +1,14 @@
 node_modules/
 .env
 .DS_Store
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+.env
+
+# Optional: large ML models
+*.pkl
